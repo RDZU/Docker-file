@@ -1,0 +1,6 @@
+INFO
+Server: Apache
+php 7.2
+mariadb: 10.7.3
+access http: http://localhost:8081/
+access database: localhost port:3308

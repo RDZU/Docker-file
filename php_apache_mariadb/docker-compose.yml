@@ -1,0 +1,46 @@
+version: '3.8'
+services: 
+
+  backend:
+    build: 
+      context: .
+      dockerfile: php.dockerfile
+    container_name: backend_svc
+    ports: 
+      - 8081:80
+    volumes: 
+      - ./www/:/var/www/html
+    depends_on: 
+      - database
+    networks: 
+      app_network:
+        aliases: 
+          - backend_host
+
+  database:
+    build: 
+      context: .
+      dockerfile: mariadb.dockerfile
+    container_name: mariadb_svc
+    ports: 
+      - 3308:3306
+    environment: 
+      MYSQL_DATABASE: "custom_db"
+      MYSQL_ROOT_PASSWORD: "Custom.2020"
+    volumes: 
+      - ./schemas/:/var/lib/mysql
+    networks: 
+      app_network:
+        aliases: 
+          - mariadb_host
+
+volumes: 
+  www: {}
+  schemas: {}
+
+networks: 
+  app_network:
+    name: app_net
+    driver: bridge
+    ipam:
+      driver: default

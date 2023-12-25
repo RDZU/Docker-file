@@ -1,0 +1,22 @@
+INFO
+Server apache
+PHP 7.2
+localhost:8080
+
+run Docker-compose
+
+1 docker-compose up -d
+1.1 docker-compose up -d --build (Rebuild everything docker image, including changes Dockerfile)
+
+
+copy config ini.php to local pc for modified file php.ini
+2 cp php-server:/usr/local/etc/php ./config
+default php 7.2: ENV_PHP_INI_DIR = usr/local/etc/php
+
+
+3 touch php.ini && cp php.ini-production php.ini
+
+
+
+EXTRA PHP LIBRARY
+https://gist.github.com/hoandang/88bfb1e30805df6d1539640fc1719d12

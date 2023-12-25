@@ -1,0 +1,7 @@
+INFO
+mysql 5.7
+localhost:3607
+
+run Docker-compose
+
+1 docker-compose up -d
