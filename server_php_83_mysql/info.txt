@@ -1,0 +1,12 @@
+INFO
+Server apache
+PHP 8.3
+localhost:8082
+
+
+Mysql 8.2
+localhost:3309
+
+copy config php.ini on local 
+backend_svc = name_service_docker
+docker cp backend_svc:/usr/local/etc/php ./config
